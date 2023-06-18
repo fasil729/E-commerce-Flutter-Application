@@ -51,7 +51,7 @@ class CartItemCard extends StatelessWidget {
               height: 10,
             ),
             Text(
-                "\$${cartItem.product.price}",
+                "ETB ${cartItem.product.price}",
               style: const TextStyle(
                 fontWeight: FontWeight.w600,color: primaryColor,
               ),

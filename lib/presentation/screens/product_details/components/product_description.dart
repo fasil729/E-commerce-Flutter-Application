@@ -140,7 +140,7 @@ class ProductDescriptionState extends State<ProductDescription> {
                               color: Colors.black,
                             )),
                         Text(
-                          "\$${totalPrice.toStringAsFixed(2)}",
+                          "ETB${totalPrice.toStringAsFixed(2)}",
                           style: priceTextStyle,
                         ),
                       ],

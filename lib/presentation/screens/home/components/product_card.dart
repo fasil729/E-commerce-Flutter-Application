@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/data/models/product.dart';
 import 'package:store/Utilities/size_config.dart';
 import 'package:store/constants/colors.dart';
 import 'package:store/presentation/screens/product_details/product_details_screen.dart';
+
+import '../../../bloc/review/review_bloc.dart';
+import '../../../bloc/review/review_event.dart';
 
 class ProductCard extends StatefulWidget {
   final Product product;
@@ -28,9 +32,12 @@ class _ProductCardState extends State<ProductCard> {
       child: SizedBox(
         width: SizeConfig.getProportionateScreenWidth(widget.width),
         child: GestureDetector(
-          onTap: () => Navigator.pushNamed(
-              context, ProductDetailsScreen.routeName,
-              arguments: widget.product),
+          onTap: () {
+            BlocProvider.of<ReviewBloc>(context)
+                .add(FetchReviewProductEvent(productId: widget.product.id));
+            Navigator.pushNamed(context, ProductDetailsScreen.routeName,
+                arguments: widget.product);
+          },
           //Navigator.pushNamed(context, ProductDetailsScreen.routeName,arguments: ProductDetailsArgument(product: product))
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -60,7 +67,7 @@ class _ProductCardState extends State<ProductCard> {
             // Row widgets that contains product's price and favorite state
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               Text(
-                "\$${widget.product.price}",
+                "ETB ${widget.product.price}",
                 style: TextStyle(
                   fontSize: SizeConfig.getProportionateScreenWidth(18),
                   fontWeight: FontWeight.w600,
