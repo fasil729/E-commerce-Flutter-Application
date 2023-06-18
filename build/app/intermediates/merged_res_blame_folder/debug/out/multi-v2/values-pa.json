@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Year 3 semister II\\Mobile programming\\workspace\\flutter_ecommerce_app\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pa\\values-pa.xml",
+            "outputFile": "D:\\Fasika\\Fasika\\third year second semester\\flutter\\lab materials\\E-commerce-Flutter-Application\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pa\\values-pa.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Dagmawi\\.gradle\\caches\\transforms-3\\acbce933e4b464a5224ed377a62db1f5\\transformed\\core-1.6.0\\res\\values-pa\\values-pa.xml",
+                    "source": "C:\\Users\\Hp\\.gradle\\caches\\transforms-3\\acbce933e4b464a5224ed377a62db1f5\\transformed\\core-1.6.0\\res\\values-pa\\values-pa.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

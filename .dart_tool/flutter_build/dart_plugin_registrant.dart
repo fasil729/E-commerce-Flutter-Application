@@ -23,6 +23,7 @@ class _PluginRegistrant {
           '`connectivity_plus_linux` threw an error: $err. '
           'The app may not function as expected until you remove this plugin from pubspec.yaml'
         );
+        rethrow;
       }
 
     } else if (Platform.isMacOS) {

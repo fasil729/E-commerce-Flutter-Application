@@ -11,6 +11,7 @@ class Product {
   late final double price;
   late final String category;
   late bool isFavourite, isPopular;
+  late List<Map> review;
   // late DateTime createdAt;
 
   Product({
@@ -22,6 +23,7 @@ class Product {
     this.rating = 0.0,
     this.isFavourite = false,
     this.isPopular = false,
+    this.review = const [],
     required this.price,
     required this.image,
     required this.category,
@@ -40,6 +42,7 @@ class Product {
       'price': price,
       'isFavourite': isFavourite,
       'isPopular': isPopular,
+      'review': review
     };
   }
 
@@ -55,48 +58,60 @@ class Product {
     price = map['price'];
     isFavourite = map['isFavourite'];
     isPopular = map['isPopular'];
+    review = map['review'];
   }
   Product toEntity() => Product(
-        id: id,
-        title: title,
-        description: description,
-        image: image,
-        images: images,
-        category: category,
-        colors: colors,
-        rating: rating,
-        price: price,
-        isFavourite: isFavourite,
-        isPopular: isPopular,
-      );
+      id: id,
+      title: title,
+      description: description,
+      image: image,
+      images: images,
+      category: category,
+      colors: colors,
+      rating: rating,
+      price: price,
+      isFavourite: isFavourite,
+      isPopular: isPopular,
+      review: review);
 }
 
 // Demo data
 List<Product> demoProducts = [
   Product(
-    id: 1,
-    image: "assets/images/p1.png",
-    images: [
-      "assets/images/p1_2.jpg",
-      "assets/images/p1_3.jpg",
-      "assets/images/p1_4.jpg",
-    ],
-    category: "Clock , Wearable",
-    colors: [
-      {"colorName": "Red Rose", "color": const Color(0xFFF6625E)},
-      {"colorName": "Purple", "color": const Color(0xFF836DB8)},
-      {"colorName": "Gold", "color": const Color(0xFFDECB9C)},
-    ],
-    title: "Apple Watch",
-    price: 64.99,
-    description: {
-      "headline": "Get Apple TV+ free for a year",
-      "description": description
-    },
-    rating: 4.8,
-    isFavourite: true,
-    isPopular: true,
-  ),
+      id: 1,
+      image: "assets/images/p1.png",
+      images: [
+        "assets/images/p1_2.jpg",
+        "assets/images/p1_3.jpg",
+        "assets/images/p1_4.jpg",
+      ],
+      category: "Clock , Wearable",
+      colors: [
+        {"colorName": "Red Rose", "color": const Color(0xFFF6625E)},
+        {"colorName": "Purple", "color": const Color(0xFF836DB8)},
+        {"colorName": "Gold", "color": const Color(0xFFDECB9C)},
+      ],
+      title: "Apple Watch",
+      price: 64.99,
+      description: {
+        "headline": "Get Apple TV+ free for a year",
+        "description": description
+      },
+      rating: 4.8,
+      isFavourite: true,
+      isPopular: true,
+      review: [
+        {
+          "id": 1,
+          "time": "march 8 2022",
+          "description": "this good product i love it so much"
+        },
+        {
+          "id": 2,
+          "time": "April 8 2022",
+          "description": "this bad product i didn't love it at all"
+        }
+      ]),
   Product(
     id: 2,
     image: "assets/images/p2.png",
@@ -119,6 +134,18 @@ List<Product> demoProducts = [
     },
     rating: 4.1,
     isPopular: true,
+      review: [
+        {
+          "id": 1,
+          "time": "march 8 2022",
+          "description": "this good product i love it so much"
+        },
+        {
+          "id": 2,
+          "time": "April 8 2022",
+          "description": "this bad product i didn't love it at all"
+        }
+      ]
   ),
   Product(
     id: 3,
@@ -141,6 +168,18 @@ List<Product> demoProducts = [
     },
     rating: 4.1,
     isFavourite: false,
+      review: [
+        {
+          "id": 1,
+          "time": "march 8 2022",
+          "description": "this good product i love it so much"
+        },
+        {
+          "id": 2,
+          "time": "April 8 2022",
+          "description": "this bad product i didn't love it at all"
+        }
+      ]
   ),
   Product(
     id: 4,
@@ -165,6 +204,18 @@ List<Product> demoProducts = [
     },
     rating: 4.1,
     isFavourite: false,
+     review: [
+        {
+          "id": 1,
+          "time": "march 8 2022",
+          "description": "this good product i love it so much"
+        },
+        {
+          "id": 2,
+          "time": "April 8 2022",
+          "description": "this bad product i didn't love it at all"
+        }
+      ],
   ),
   Product(
     id: 5,
@@ -190,6 +241,18 @@ List<Product> demoProducts = [
     rating: 4.4,
     isFavourite: true,
     isPopular: true,
+      review: [
+        {
+          "id": 1,
+          "time": "march 8 2022",
+          "description": "this good product i love it so much"
+        },
+        {
+          "id": 2,
+          "time": "April 8 2022",
+          "description": "this bad product i didn't love it at all"
+        }
+      ],
   ),
 ];
 
