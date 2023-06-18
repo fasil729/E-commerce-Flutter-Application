@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/presentation/bloc/favorite/favorite_bloc.dart';
 import 'package:store/presentation/bloc/order/order_bloc.dart';
+import 'package:store/presentation/bloc/review/review_bloc.dart';
 import 'package:store/presentation/screens/splash/splash_screen.dart';
 import 'constants/routes.dart';
 import 'presentation/bloc/cart/cart_bloc.dart';
@@ -30,6 +31,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<CartBloc>(
           create: (_) => CartBloc(),
+        ),
+        BlocProvider<ReviewBloc>(
+          create: (_) => ReviewBloc(),
         ),
       ],
       child: MaterialApp(
