@@ -78,101 +78,102 @@ class DetailsScreenContentState extends State<DetailsScreenContent> {
                       },
                     ),
                   ),
-  BlocBuilder(
-  bloc: review_bloc,
-  builder: (BuildContext context, 
-                  ReviewState state) {
-    if (state is ReviewLoadingState) {
-      return Center(child: CircularProgressIndicator());
-    } else if (state is ReviewSuccessFetchDataState) {
-      List<Map> reviews = state.review;
-      int count = reviews.length;
-      String? review_text;
-      return Column(
-        children: [
-          // Display existing reviews
-          if (reviews.isNotEmpty) ...[
-            Text('Reviews (${reviews.length})'),
-            SizedBox(height: 8.0),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: reviews.length,
-              itemBuilder: (BuildContext context, int index) {
-                Map review = reviews[index];
-                return ListTile(
-                  title: Text(review["discription"]),
-                  subtitle: Text('time: ${review["time"]}'),
-                  trailing: IconButton(
-                    icon: Icon(Icons.delete),
-                    onPressed: () {
-                      // Delete the review
-                      review_bloc.add(DeleteReviewProductEvent(productID: productID, reviewID: review["id"]));
+                  BlocBuilder(
+                    bloc: review_bloc,
+                    builder: (BuildContext context, ReviewState state) {
+                      if (state is ReviewLoadingState) {
+                        return Center(child: CircularProgressIndicator());
+                      } else if (state is ReviewSuccessFetchDataState) {
+                        List<Map> reviews = state.review;
+                        int count = reviews.length;
+                        String? review_text;
+                        return Column(
+                          children: [
+                            // Display existing reviews
+                            if (reviews.isNotEmpty) ...[
+                              Text('Reviews (${reviews.length})'),
+                              SizedBox(height: 8.0),
+                              ListView.builder(
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                itemCount: reviews.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  Map review = reviews[index];
+                                  return ListTile(
+                                    title: Text(review["description"]),
+                                    subtitle: Text('time: ${review["time"]}'),
+                                    trailing: IconButton(
+                                      icon: Icon(Icons.delete),
+                                      onPressed: () {
+                                        // Delete the review
+                                        review_bloc.add(
+                                            DeleteReviewProductEvent(
+                                                productID: productID,
+                                                reviewID: review["id"]));
+                                      },
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
+                            // Add review
+                            SizedBox(height: 16.0),
+                            Text('Add a review'),
+                            SizedBox(height: 8.0),
+                            TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Enter your review',
+                                border: OutlineInputBorder(),
+                              ),
+                              onChanged: (value) {
+                                // Update the review text
+                                review_text = value;
+                              },
+                            ),
+                            SizedBox(height: 8.0),
+                            // Row(
+                            //   children: [
+                            //     Text('Rating: '),
+                            //     SizedBox(width: 8.0),
+                            //     for (int i = 1; i <= 5; i++) ...[
+                            //       GestureDetector(
+                            //         onTap: () {
+                            //           // Update the rating
+                            //           review_bloc.add(UpdateReviewRatingEvent(rating: i));
+                            //         },
+                            //         child:
+                            // (
+                            //           Icons.star,
+                            //           size: 32.0,
+                            //           color: i <= state.rating ? Colors.orange : Colors.grey,
+                            //         ),
+                            //       ),
+                            //     ],
+                            //   ],
+                            // ),
+                            SizedBox(height: 16.0),
+                            DefaultButton(
+                              text: 'Submit',
+                              onPressed: () {
+                                if (review_text != Null) {
+                                  review_bloc.add(AddReviewProductEvent(
+                                      productID: productID,
+                                      review: {
+                                        "id": count,
+                                        "time": "june 18 2023",
+                                        "description": review_text
+                                      }));
+                                }
+                                // Add the review
+                              },
+                            ),
+                          ],
+                        );
+                      } else {
+                        return Container();
+                      }
                     },
                   ),
-                );
-              },
-            ),
-          ],
-          // Add review
-          SizedBox(height: 16.0),
-          Text('Add a review'),
-          SizedBox(height: 8.0),
-          TextField(
-            decoration: InputDecoration(
-              hintText: 'Enter your review',
-              border: OutlineInputBorder(),
-            ),
-            onChanged: (value) {
-              // Update the review text
-             review_text = value;
-            },
-          ),
-          SizedBox(height: 8.0),
-          // Row(
-          //   children: [
-          //     Text('Rating: '),
-          //     SizedBox(width: 8.0),
-          //     for (int i = 1; i <= 5; i++) ...[
-          //       GestureDetector(
-          //         onTap: () {
-          //           // Update the rating
-          //           review_bloc.add(UpdateReviewRatingEvent(rating: i));
-          //         },
-          //         child: Icon(
-          //           Icons.star,
-          //           size: 32.0,
-          //           color: i <= state.rating ? Colors.orange : Colors.grey,
-          //         ),
-          //       ),
-          //     ],
-          //   ],
-          // ),
-          SizedBox(height: 16.0),
-          DefaultButton(
-            text: 'Submit',
-            onPressed: () {
-              if (review_text != Null) {
-
-                review_bloc.add(AddReviewProductEvent(
-                productID: productID,
-                review: {"id": count, "time": "june 18 2023", "description": review_text} 
-                
-              ));
-
-              }
-              // Add the review 
-              
-            },
-          ),
-        ],
-      );
-    } else {
-      return Container();
-    }
-  },
-),
-                  
                 ],
               )),
         ],

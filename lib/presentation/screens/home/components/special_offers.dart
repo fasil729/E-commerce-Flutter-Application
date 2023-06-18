@@ -6,6 +6,8 @@ import 'package:store/presentation/bloc/search/search_bloc.dart';
 import 'package:store/presentation/bloc/search/search_state.dart';
 import 'package:store/presentation/screens/product_details/product_details_screen.dart';
 
+import '../../../bloc/review/review_bloc.dart';
+import '../../../bloc/review/review_event.dart';
 import 'special_offer_card.dart';
 
 class SpecialOffers extends StatelessWidget {
@@ -56,11 +58,16 @@ class SpecialOffers extends StatelessWidget {
                                           image: state.products[index].image,
                                           price: state.products[index].price,
                                           title: state.products[index].title,
-                                          onTap: () => Navigator.pushNamed(
-                                              context,
-                                              ProductDetailsScreen.routeName,
-                                              arguments:
-                                                  state.products[index])),
+                                          onTap: () {
+                                            BlocProvider.of<ReviewBloc>(context)
+                                                .add(FetchReviewProductEvent(
+                                                    productId: state
+                                                        .products[index].id));
+                                            Navigator.pushNamed(context,
+                                                ProductDetailsScreen.routeName,
+                                                arguments:
+                                                    state.products[index]);
+                                          }),
                                     ),
                                   ),
                                 )),

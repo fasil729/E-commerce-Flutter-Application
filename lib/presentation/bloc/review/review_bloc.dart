@@ -19,6 +19,7 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
         .firstWhere((product) => product.id == event.productId)
         .review;
     if (review.length >= 0) {
+      print(review);
       emitter(ReviewSuccessFetchDataState(review: review));
     } else {
       emitter(const ReviewErrorFetchDataState(errorMessage: "No reviews"));
@@ -49,8 +50,6 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
     Product product =
         demoProducts.firstWhere((product) => product.id == event.productID);
     product.review.removeWhere((review) => review["id"] == event.reviewID);
-
-
 
     List<Map> review = product.review;
 
