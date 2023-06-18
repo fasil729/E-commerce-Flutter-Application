@@ -6,7 +6,6 @@ import 'package:store/presentation/screens/favourite/favourite_screen.dart';
 import 'package:store/presentation/screens/forgot_password/forgot_password_screen.dart';
 import 'package:store/presentation/screens/home/home_screen.dart';
 import 'package:store/presentation/screens/orders/orders_screen.dart';
-import 'package:store/presentation/screens/otp_screen/otp_screen.dart';
 import 'package:store/presentation/screens/product_details/product_details_screen.dart';
 import 'package:store/presentation/screens/profile/profile_screen.dart';
 import 'package:store/presentation/screens/sign_in/sign_in_screen.dart';
@@ -23,7 +22,6 @@ final Map<String, WidgetBuilder> routes = {
   SignUpScreen.routeName: (context) => const SignUpScreen(),
   ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
   CompleteProfileScreen.routeName: (context) => const CompleteProfileScreen(),
-  OTPScreen.routeName: (context) => const OTPScreen(),
   CheckoutScreen.routeName: (context) => const CheckoutScreen(),
   FavouriteScreen.routeName: (context) => const FavouriteScreen(),
   OrderScreen.routeName: (context) => const OrderScreen()

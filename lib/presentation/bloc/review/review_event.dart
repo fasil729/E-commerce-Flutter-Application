@@ -30,3 +30,11 @@ class DeleteReviewProductEvent extends ReviewEvent {
   @override
   List<Object?> get props => [];
 }
+
+class UpdateReviewRatingEvent extends ReviewEvent {
+  int rating;
+  int productId;
+  UpdateReviewRatingEvent({required this.rating, required this.productId});
+  @override
+  List<Object?> get props => [];
+}

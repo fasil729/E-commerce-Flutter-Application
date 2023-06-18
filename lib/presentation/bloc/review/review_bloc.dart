@@ -8,6 +8,7 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
     on<FetchReviewProductEvent>(_onFetchReviewProductEvent);
     on<AddReviewProductEvent>(_onAddReviewProductEvent);
     on<DeleteReviewProductEvent>(_onDeleteReviewProductEvent);
+    on<UpdateReviewRatingEvent>(_onUpdateReviewRatingEvent);
     // on<ChangeItemReviewEvent>(_onChangeItemReviewEvent);
   }
   void _onFetchReviewProductEvent(
@@ -15,11 +16,13 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
     // Change the state to LoadingState
     emitter(const ReviewLoadingState());
     await Future.delayed(const Duration(seconds: 2));
-    List<Map> review = demoProducts
-        .firstWhere((product) => product.id == event.productId)
-        .review;
+    Product product =
+        demoProducts.firstWhere((product) => product.id == event.productId);
+    List<Map> review = product.review;
+
     if (review.length >= 0) {
-      emitter(ReviewSuccessFetchDataState(review: review));
+      emitter(
+          ReviewSuccessFetchDataState(review: review, rating: product.rating));
     } else {
       emitter(const ReviewErrorFetchDataState(errorMessage: "No reviews"));
     }
@@ -35,7 +38,8 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
     product.review.add(event.review);
     List<Map> review = product.review;
     if (review.length >= 0) {
-      emitter(ReviewSuccessFetchDataState(review: review));
+      emitter(
+          ReviewSuccessFetchDataState(review: review, rating: product.rating));
     } else {
       emitter(const ReviewErrorFetchDataState(errorMessage: "No reviews"));
     }
@@ -50,17 +54,37 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
         demoProducts.firstWhere((product) => product.id == event.productID);
     product.review.removeWhere((review) => review["id"] == event.reviewID);
 
-
-
     List<Map> review = product.review;
 
     if (review.length >= 0) {
-      emitter(ReviewSuccessFetchDataState(review: review));
+      emitter(
+          ReviewSuccessFetchDataState(review: review, rating: product.rating));
     } else {
       emitter(const ReviewErrorFetchDataState(errorMessage: "No reviews"));
     }
   }
 
+
+
+
+void _onUpdateReviewRatingEvent(
+      UpdateReviewRatingEvent event, Emitter<ReviewState> emitter) async {
+    // Change the state to LoadingState
+    emitter(const ReviewLoadingState());
+    await Future.delayed(const Duration(seconds: 2));
+    Product product =
+        demoProducts.firstWhere((product) => product.id == event.productId);
+    product.review.removeWhere((review) => review["id"] == event.rating);
+
+    List<Map> review = product.review;
+
+    if (review.length >= 0) {
+      emitter(
+          ReviewSuccessFetchDataState(review: review, rating: product.rating));
+    } else {
+      emitter(const ReviewErrorFetchDataState(errorMessage: "No reviews"));
+    }
+  }
   // void _onChangeItemReviewEvent(
   //     ChangeItemReviewEvent event, Emitter<ReviewState> emitter) {
   //     var isReview = demoProducts

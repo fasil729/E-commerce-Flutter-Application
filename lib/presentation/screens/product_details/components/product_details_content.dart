@@ -107,7 +107,7 @@ class DetailsScreenContentState extends State<DetailsScreenContent> {
                     icon: Icon(Icons.delete),
                     onPressed: () {
                       // Delete the review
-                      review_bloc.add(DeleteReviewProductEvent(productID: productID, reviewID: review["id"]));
+                      BlocProvider.of<ReviewBloc>(context).add(DeleteReviewProductEvent(productID: productID, reviewID: review["id"]));
                     },
                   ),
                 );
@@ -129,25 +129,25 @@ class DetailsScreenContentState extends State<DetailsScreenContent> {
             },
           ),
           SizedBox(height: 8.0),
-          // Row(
-          //   children: [
-          //     Text('Rating: '),
-          //     SizedBox(width: 8.0),
-          //     for (int i = 1; i <= 5; i++) ...[
-          //       GestureDetector(
-          //         onTap: () {
-          //           // Update the rating
-          //           review_bloc.add(UpdateReviewRatingEvent(rating: i));
-          //         },
-          //         child: Icon(
-          //           Icons.star,
-          //           size: 32.0,
-          //           color: i <= state.rating ? Colors.orange : Colors.grey,
-          //         ),
-          //       ),
-          //     ],
-          //   ],
-          // ),
+          Row(
+            children: [
+              Text('Rating: '),
+              SizedBox(width: 8.0),
+              for (int i = 1; i <= 5; i++) ...[
+                GestureDetector(
+                  onTap: () {
+                    // Update the rating
+                    review_bloc.add(UpdateReviewRatingEvent(rating: i, productId: productID));
+                  },
+                  child: Icon(
+                    Icons.star,
+                    size: 32.0,
+                    color: i <= state.rating ? Colors.orange : Colors.grey,
+                  ),
+                ),
+              ],
+            ],
+          ),
           SizedBox(height: 16.0),
           DefaultButton(
             text: 'Submit',
