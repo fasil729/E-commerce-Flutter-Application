@@ -23,7 +23,7 @@ class AddReviewProductEvent extends ReviewEvent {
 
 class DeleteReviewProductEvent extends ReviewEvent {
   final int productID;
-  final Map reviewID;
+  final int reviewID;
 
   const DeleteReviewProductEvent(
       {required this.productID, required this.reviewID});
@@ -32,9 +32,9 @@ class DeleteReviewProductEvent extends ReviewEvent {
 }
 
 class UpdateReviewRatingEvent extends ReviewEvent {
-  int rating;
-  int productId;
+  final int rating;
+  final int productId;
   UpdateReviewRatingEvent({required this.rating, required this.productId});
   @override
-  List<Object?> get props => [];
+  List<Object> get props => [];
 }

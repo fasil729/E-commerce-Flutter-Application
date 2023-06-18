@@ -43,6 +43,7 @@ class _QuantitySelectorState extends State<QuantitySelector> {
       if (_value > 0) {
         _value--;
         _controller.text = _value.toString();
+        widget.onValueChanged(_value);
       }
     });
   }

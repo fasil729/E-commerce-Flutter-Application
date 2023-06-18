@@ -37,7 +37,7 @@ class ProfilePicture extends StatelessWidget {
                     Icon(Icons.location_on_outlined,color: Colors.black,size: 30,),
                     SizedBox(width: 10,),
                     Text(
-                        "Address: 4 killo, Addis Ababa, Ethiopia",
+                        "Address: 4 killo, Addis Ababa",
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 15,
