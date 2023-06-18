@@ -74,7 +74,7 @@ void _onUpdateReviewRatingEvent(
     await Future.delayed(const Duration(seconds: 2));
     Product product =
         demoProducts.firstWhere((product) => product.id == event.productId);
-    product.review.removeWhere((review) => review["id"] == event.rating);
+    product.rating = event.rating / 1;
 
     List<Map> review = product.review;
 
