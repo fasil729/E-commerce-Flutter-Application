@@ -121,7 +121,7 @@ class _CartBodyState extends State<CartBody> {
                               fontFamily: "Serif"),
                         ),
                         Text(
-                          '\$${totalPrice.toStringAsFixed(2)}',
+                          'ETB ${totalPrice.toStringAsFixed(2)}',
                           style: TextStyle(
                             color: Color(0xff5956e9),
                             fontSize: 22,

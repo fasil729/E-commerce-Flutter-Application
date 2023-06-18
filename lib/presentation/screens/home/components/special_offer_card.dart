@@ -72,7 +72,7 @@ class SpecialOfferCard extends StatelessWidget {
                           height: 15,
                         ),
                         Text(
-                          "\$$price",
+                          "ETB $price",
                           style: const TextStyle(
                             color: Color(0xff5956e9),
                             fontSize: 17,

@@ -92,7 +92,7 @@ List<Product> demoProducts = [
         {"colorName": "Gold", "color": const Color(0xFFDECB9C)},
       ],
       title: "Apple Watch",
-      price: 64.99,
+      price: 3511.38,
       description: {
         "headline": "Get Apple TV+ free for a year",
         "description": description
@@ -113,27 +113,27 @@ List<Product> demoProducts = [
         }
       ]),
   Product(
-    id: 2,
-    image: "assets/images/p2.png",
-    images: [
-      "assets/images/p2_1.png",
-      "assets/images/p2_2.jpg",
-    ],
-    category: "Fashion",
-    colors: [
-      {"colorName": "Red Rose", "color": const Color(0xFFF6625E)},
-      {"colorName": "Purple", "color": const Color(0xFF836DB8)},
-      {"colorName": "Gold", "color": const Color(0xFFDECB9C)},
-      {"colorName": "Red", "color": const Color(0xE7FF0D29)}
-    ],
-    title: "Apple Watch",
-    price: 50.5,
-    description: {
-      "headline": "Get Apple TV+ free for a year",
-      "description": description
-    },
-    rating: 4.1,
-    isPopular: true,
+      id: 2,
+      image: "assets/images/p2.png",
+      images: [
+        "assets/images/p2_1.png",
+        "assets/images/p2_2.jpg",
+      ],
+      category: "Fashion",
+      colors: [
+        {"colorName": "Red Rose", "color": const Color(0xFFF6625E)},
+        {"colorName": "Purple", "color": const Color(0xFF836DB8)},
+        {"colorName": "Gold", "color": const Color(0xFFDECB9C)},
+        {"colorName": "Red", "color": const Color(0xE7FF0D29)}
+      ],
+      title: "Apple Watch",
+      price: 2749.22,
+      description: {
+        "headline": "Get Apple TV+ free for a year",
+        "description": description
+      },
+      rating: 4.1,
+      isPopular: true,
       review: [
         {
           "id": 1,
@@ -145,29 +145,28 @@ List<Product> demoProducts = [
           "time": "April 8 2022",
           "description": "this bad product i didn't love it at all"
         }
-      ]
-  ),
+      ]),
   Product(
-    id: 3,
-    image: "assets/images/p3.png",
-    images: [
-      "assets/images/p3_1.png",
-    ],
-    category: "Shoes",
-    colors: [
-      {"colorName": "Red Rose", "color": const Color(0xFFF6625E)},
-      {"colorName": "Purple", "color": const Color(0xFF836DB8)},
-      {"colorName": "Gold", "color": const Color(0xFFDECB9C)},
-      {"colorName": "Red", "color": const Color(0xE7FF0D29)}
-    ],
-    title: "Nike Shoes",
-    price: 20.20,
-    description: {
-      "headline": "Get Nike shoes with another one as a gift",
-      "description": description
-    },
-    rating: 4.1,
-    isFavourite: false,
+      id: 3,
+      image: "assets/images/p3.png",
+      images: [
+        "assets/images/p3_1.png",
+      ],
+      category: "Shoes",
+      colors: [
+        {"colorName": "Red Rose", "color": const Color(0xFFF6625E)},
+        {"colorName": "Purple", "color": const Color(0xFF836DB8)},
+        {"colorName": "Gold", "color": const Color(0xFFDECB9C)},
+        {"colorName": "Red", "color": const Color(0xE7FF0D29)}
+      ],
+      title: "Nike Shoes",
+      price: 1099.69,
+      description: {
+        "headline": "Get Nike shoes with another one as a gift",
+        "description": description
+      },
+      rating: 4.1,
+      isFavourite: false,
       review: [
         {
           "id": 1,
@@ -179,8 +178,7 @@ List<Product> demoProducts = [
           "time": "April 8 2022",
           "description": "this bad product i didn't love it at all"
         }
-      ]
-  ),
+      ]),
   Product(
     id: 4,
     image: "assets/images/p4.png",
@@ -197,25 +195,25 @@ List<Product> demoProducts = [
       {"colorName": "Red", "color": const Color(0xE7FF0D29)}
     ],
     title: "Apple Watch",
-    price: 20.20,
+    price: 1099.69,
     description: {
       "headline": "Get Apple TV+ free for a year",
       "description": description
     },
     rating: 4.1,
     isFavourite: false,
-     review: [
-        {
-          "id": 1,
-          "time": "march 8 2022",
-          "description": "this good product i love it so much"
-        },
-        {
-          "id": 2,
-          "time": "April 8 2022",
-          "description": "this bad product i didn't love it at all"
-        }
-      ],
+    review: [
+      {
+        "id": 1,
+        "time": "march 8 2022",
+        "description": "this good product i love it so much"
+      },
+      {
+        "id": 2,
+        "time": "April 8 2022",
+        "description": "this bad product i didn't love it at all"
+      }
+    ],
   ),
   Product(
     id: 5,
@@ -233,7 +231,7 @@ List<Product> demoProducts = [
       {"colorName": "Yellow", "color": const Color(0xE7FFD70D)}
     ],
     title: "Apple Laptop",
-    price: 36.55,
+    price: 1995.77,
     description: {
       "headline": "Get Apple TV+ free for a year",
       "description": description
@@ -241,19 +239,49 @@ List<Product> demoProducts = [
     rating: 4.4,
     isFavourite: true,
     isPopular: true,
+    review: [
+      {
+        "id": 1,
+        "time": "march 8 2022",
+        "description": "this good product i love it so much"
+      },
+      {
+        "id": 2,
+        "time": "April 8 2022",
+        "description": "this bad product i didn't love it at all"
+      }
+    ],
+  ),
+  Product(
+      id: 6,
+      title: "Apple iPhone 12",
+      description: {
+        "headline": "Get Apple iphone 12 pro",
+        "description":
+            "The iPhone 12 features a 6.1-inch (155 mm) display with Super Retina XDR OLED technology at a resolution of 2532 × 1170 pixels and a pixel density of about 460 ppi."
+      },
+      images: ["assets/images/p6_1.png", "assets/images/p6_2.png"],
+      colors: [
+        {"colorName": "Red Rose", "color": const Color(0xFFF6625E)},
+        {"colorName": "Purple", "color": const Color(0xFF836DB8)},
+        {"colorName": "Gold", "color": const Color(0xFFDECB9C)},
+        {"colorName": "Red", "color": const Color(0xE7FF0D29)}
+      ],
+      price: 45369.10,
+      image: "assets/images/p6_2.png",
+      category: "Phones",
       review: [
         {
           "id": 1,
-          "time": "march 8 2022",
-          "description": "this good product i love it so much"
+          "time": "May 25 2023",
+          "description": "This product is too overtated."
         },
         {
           "id": 2,
-          "time": "April 8 2022",
-          "description": "this bad product i didn't love it at all"
+          "time": "Jun 7 2023",
+          "description": "I have been using ths product for over a year and i can say it is amazing."
         }
-      ],
-  ),
+      ])
 ];
 
 const String description =

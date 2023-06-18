@@ -60,7 +60,7 @@ class _ProductCardState extends State<ProductCard> {
             // Row widgets that contains product's price and favorite state
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               Text(
-                "\$${widget.product.price}",
+                "ETB ${widget.product.price}",
                 style: TextStyle(
                   fontSize: SizeConfig.getProportionateScreenWidth(18),
                   fontWeight: FontWeight.w600,
