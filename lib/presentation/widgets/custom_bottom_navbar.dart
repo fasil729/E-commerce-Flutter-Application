@@ -39,16 +39,6 @@ class CustomButtomNavBar extends StatelessWidget {
               },
             ),
             IconButton(
-              icon: Icon(Icons.favorite_outline_sharp,
-                  color: MenuState.favourite == selectedMenu
-                      ? primaryColor
-                      : inActiveIconColor),
-              onPressed: () => Navigator.push(context,
-                     CustomScaleTransition(nextPageUrl: FavouriteScreen.routeName,
-                     nextPage: const FavouriteScreen()))
-              ,
-            ),
-            IconButton(
               icon: Icon(
                 Icons.supervised_user_circle_outlined,
                 color: MenuState.profile == selectedMenu

@@ -39,9 +39,6 @@ List<Map<String, dynamic>> categories = [
   {"title": "Laptop"},
   {"title": "Phones"},
   {"title": "Clock"},
-  {"title": "Smartphone"},
-  {"title": "Fashion"},
   {"title": "Computers"},
   {"title": "Shoes"},
-  {"title": "Drones"},
 ];

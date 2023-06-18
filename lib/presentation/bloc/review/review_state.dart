@@ -32,8 +32,9 @@ class ReviewErrorFetchDataState extends ReviewState {
 // Success state for the Review page
 class ReviewSuccessFetchDataState extends ReviewState {
   final List<Map> review;
+  double rating;
 
-  const ReviewSuccessFetchDataState({required this.review});
+  ReviewSuccessFetchDataState({required this.review, required this.rating});
   @override
   List<Object?> get props => [];
 }

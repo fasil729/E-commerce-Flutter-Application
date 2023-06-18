@@ -23,7 +23,7 @@ class ProfilePicture extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 25,),
-                const Text("Joe Doe",
+                const Text("Fasika Fikadu",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 15,
@@ -37,7 +37,7 @@ class ProfilePicture extends StatelessWidget {
                     Icon(Icons.location_on_outlined,color: Colors.black,size: 30,),
                     SizedBox(width: 10,),
                     Text(
-                        "Address: 43 Oxford Road M13\n4GR Manchester, UK",
+                        "Address: 4 killo, Addis Ababa, Ethiopia",
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 15,

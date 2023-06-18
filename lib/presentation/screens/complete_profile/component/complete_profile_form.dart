@@ -8,8 +8,9 @@ import 'package:store/presentation/widgets/form_errors.dart';
 import 'package:store/Utilities/size_config.dart';
 import 'package:store/Utilities/sqfilte_helper.dart';
 import 'package:store/constants/form_messages.dart';
-import 'package:store/presentation/screens/otp_screen/otp_screen.dart';
 import 'package:store/presentation/screens/sign_up/components/sign_up_form.dart';
+
+import '../../home/home_screen.dart';
 
 class CompleteProfileForm extends StatefulWidget {
   final ScreenArgs userData;
@@ -85,11 +86,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                           email: widget.userData.email,
                           password: widget.userData.password);
                       await _sqliteDbHelper.insertUser(user);
-                      Navigator.push(
-                          context,
-                          CustomScaleTransition(
-                              nextPageUrl: OTPScreen.routeName,
-                              nextPage: const OTPScreen()));
+                       Navigator.pushNamedAndRemoveUntil(context,
+                                        HomeScreen.routeName, (route) => false);
                     }
                   } on Exception {}
                 }
