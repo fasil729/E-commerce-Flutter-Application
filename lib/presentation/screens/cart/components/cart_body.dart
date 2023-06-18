@@ -26,7 +26,7 @@ class _CartBodyState extends State<CartBody> {
   late double totalPrice = 0;
   calculatePrice() {
     for (int i = 0; i < demoCart.products.length; i++) {
-      totalPrice += demoCart.products[i].product.price;
+      totalPrice += (demoCart.products[i].product.price *demoCart.products[i].quantity);
     }
   }
 
@@ -121,7 +121,7 @@ class _CartBodyState extends State<CartBody> {
                               fontFamily: "Serif"),
                         ),
                         Text(
-                          '${totalPrice.toStringAsFixed(2)}',
+                          '\$${totalPrice.toStringAsFixed(2)}',
                           style: TextStyle(
                             color: Color(0xff5956e9),
                             fontSize: 22,

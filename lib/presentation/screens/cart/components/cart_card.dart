@@ -69,20 +69,20 @@ class CartItemCard extends StatelessWidget {
               ),
               ),
               const SizedBox(width: 10,),
-              CartIconButton(
-                icon: const Icon(FontAwesomeIcons.minus,size: 10,color: Colors.white,),
-                onTap: (){},
-                backgroundColor: const Color(0xff7ccbeb),
-              ),
+              // CartIconButton(
+              //   icon: const Icon(FontAwesomeIcons.minus,size: 10,color: Colors.white,),
+              //   onTap: (){},
+              //   backgroundColor: const Color(0xff7ccbeb),
+              // ),
               const SizedBox(width: 8,),
               Text("${cartItem.quantity}"),
               const SizedBox(width: 8,),
-              CartIconButton(
-                icon: const Icon(FontAwesomeIcons.plus,size: 10,color: Colors.white,),
-                backgroundColor: const Color(0xff7ccbeb),
-                onTap: () {}
-                ,
-              )
+              // CartIconButton(
+              //   icon: const Icon(FontAwesomeIcons.plus,size: 10,color: Colors.white,),
+              //   backgroundColor: const Color(0xff7ccbeb),
+              //   onTap: () {}
+              //   ,
+              // )
             ],
           ),
           ]),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:store/data/models/product.dart';
 import 'package:store/Utilities/size_config.dart';
 import 'package:store/constants/colors.dart';
@@ -10,26 +11,37 @@ import 'product_colors.dart';
 class ProductDescription extends StatefulWidget {
   final Product product;
   final GestureTapCallback? onSeeMorePressed;
+  final Function(int) onQuantityChanged;
 
   const ProductDescription(
-      {Key? key, required this.product, this.onSeeMorePressed})
+      {Key? key,
+      required this.product,
+      this.onSeeMorePressed,
+      required this.onQuantityChanged})
       : super(key: key);
   ProductDescriptionState createState() => ProductDescriptionState();
 }
 
 class ProductDescriptionState extends State<ProductDescription> {
+  int quantity = 1;
+  late double totalPrice;
+
+  @override
+  void initState() {
+    super.initState();
+    totalPrice = widget.product.price;
+  }
+
+  void updateQuantity(int newQuantity) {
+    setState(() {
+      quantity = newQuantity;
+      totalPrice = quantity * widget.product.price;
+      widget.onQuantityChanged(quantity);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    int quantity = 1;
-    double totalPrice = widget.product.price;
-
-    void updateQuantity(int newQuantity) {
-      setState(() {
-        quantity = newQuantity;
-        totalPrice = quantity * widget.product.price;
-      });
-    }
-
     return Padding(
       padding: const EdgeInsets.only(left: 8.0, right: 8.0),
       child: Column(
@@ -128,7 +140,7 @@ class ProductDescriptionState extends State<ProductDescription> {
                               color: Colors.black,
                             )),
                         Text(
-                          "\$$totalPrice",
+                          "\$${totalPrice.toStringAsFixed(2)}",
                           style: priceTextStyle,
                         ),
                       ],
